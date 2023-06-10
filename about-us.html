@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--載入 Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        .nav-link {
+            color: #ffffff;
+        }
+
+        .nav-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-item:hover {
+            background-color: #D9D9D9;
+            border-radius: 10px;
+        }
+
+        .nav-link:hover {
+            color: #4E4F51;
+        }
+
+        .nav-link.active {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .navbar-brand {
+            margin-left: 100px;
+        }
+
+        .about-us h1 {
+            font-size: 40px;
+            color: #4E4F51;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+
+        .about-us p {
+            font-size: 18px;
+            color: #4E4F51;
+            max-width: 800px;
+            text-align: left;
+            margin: 0 auto;
+            padding: 0 80px;
+        }
+
+        .author-section {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 800px;
+            /* 最大宽度 */
+            margin: 0 auto;
+            /* 居中对齐 */
+            margin-top: 50px;
+            /* 上方距离 */
+            margin-bottom: 50px;
+            /* 下方距离 */
+        }
+
+
+        .author-card {
+            width: 300px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .author-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .author-card h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .author-card p {
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+
+            .navbar-collapse {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                /* 修改為初始位置在畫面外 */
+                width: 100%;
+                height: 100%;
+                background-color: #094847;
+                transition: left 1s linear;
+                /* 添加過渡效果 */
+                z-index: 9999;
+            }
+
+            .navbar-collapse.show {
+                left: 0%;
+                /* 修改為滑入畫面內 */
+            }
+
+            .navbar-collapse.show .navbar-nav {
+                margin-top: 30px;
+            }
+
+
+            .navbar-toggler {
+                color: #ffffff;
+                margin-top: -15px;
+                position: fixed;
+                top: 10px;
+                right: 10px;
+            }
+
+            .navbar-brand {
+                margin-left: 20px;
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            .nav-item {
+                width: 100%;
+                margin-top: 40px;
+                font-size: 24px;
+
+            }
+
+            .nav-item:hover {
+                background-color: #D9D9D9;
+                border-radius: 10px;
+                width: 100%;
+            }
+
+
+
+            .nav-link {
+                color: #ffffff;
+                font-family: Inter;
+            }
+
+            .nav-link.active {
+                font-weight: bold;
+                font-size: 24px;
+            }
+
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 9998;
+                display: none;
+            }
+
+            .overlay.show {
+                display: block;
+            }
+        }
+
+        .navbar-close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 24px;
+
+        }
+
+        .navbar-toggler-icon span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            margin-bottom: 4px;
+            background-color: #fff;
+            height: 4px;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+
+<body style="background-color: #ebeff3">
+
+    <nav class="navbar" style="background-color: #094847; position: relative;">
+        <nav>
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" style="color:#FFFFFF; font-size: 30px; font-weight: bold; ">解睏新聞</a>
+            </div>
+        </nav>
+        <nav class="navbar navbar-expand-md bg-body-tertiary">
+            <div class="container-fluid" style="margin-right: 100px;">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+                    style="position: absolute; top: 10px; right: 10px;">
+                    <span class="navbar-toggler-icon">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+
+                    <button class="navbar-close-btn d-md-none" type="button" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" style="font-family: Inter" href="#">藝文 X 生活</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="font-family: Inter" href="#">校園 X 體育</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">影音新聞</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page">關於我們</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </nav>
+
+
+
+    <div class="overlay"></div>
+
+
+    <!--載入 Bootstrap JS 和 Popper.js-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-hl4Rl7o+zmUUojSmfWhFfRvF+dWg77ym8pX6SHrT9XHmT03cFw7wYVJ8jBFHN+i0"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pzjwZAwZua2+wVrO6U2R+mdfZRfy7WbcgmW9JgM1zSzJ4IT2B53U1La1fQrRs8Kz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        var navbarCollapse = document.querySelector('.navbar-collapse');
+        var overlay = document.querySelector('.overlay');
+        var navbarToggler = document.querySelector('.navbar-toggler');
+
+        navbarToggler.addEventListener('click', function () {
+            navbarCollapse.classList.toggle('show');
+            overlay.classList.toggle('show');
+        });
+
+        overlay.addEventListener('click', function () {
+            navbarCollapse.classList.remove('show');
+            overlay.classList.remove('show');
+        });
+
+        var navbarCloseBtn = document.querySelector('.navbar-close-btn');
+
+        navbarCloseBtn.addEventListener('click', function () {
+            navbarCollapse.classList.remove('show');
+            overlay.classList.remove('show');
+        });
+
+
+    </script>
+
+<div class="about-us">
+    <h1>關於我們</h1>
+    <p>「解睏新聞」取名自「解困新聞（Solutions News）」，我們的目標是提供資訊和新聞，讓讀者能夠解決困擾和問題，並期望我們精彩的故事與內容，能讓大家從昏昏欲睡中再次振奮。</p>
+</div>
+
+<div class="separator"></div>
+
+<div class="author-section">
+    <div class="author-card">
+        <img src="https://i.pinimg.com/564x/b3/4b/db/b34bdbbeb783f95d828e5693b69611a6.jpg" alt="Author 1">
+        <h3>王嘉瑜</h3>
+        <p>作者簡介1</p>
+    </div>
+    <div class="author-card">
+        <img src="https://i.pinimg.com/564x/b1/4d/b9/b14db999c16513f3219e9577b24c3dab.jpg" alt="Author 2">
+        <h3>劉亭妤</h3>
+        <p>作者簡介2</p>
+    </div>
+    <div class="author-card">
+        <img src="https://i.pinimg.com/564x/e3/a6/20/e3a620455da6e274cec87a57c7f5f5ea.jpg" alt="Author 3">
+        <h3>郭以涵</h3>
+        <p>作者簡介3</p>
+    </div>
+    <div class="author-card">
+        <img src="https://i.pinimg.com/564x/3e/61/6e/3e616ec25de7bbd13a7a7f0fac1ca56d.jpg" alt="Author 4">
+        <h3>郭宇璇</h3>
+        <p>2001年生，政大新聞系，喜歡文學、獨立音樂、史努比，還有寫程式？！</p>
+    </div>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</body>
+
+</html>　
