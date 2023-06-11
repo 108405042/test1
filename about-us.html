@@ -6,12 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!--載入 Bootstrap CSS-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+ <!--載入 Bootstrap CSS-->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+ integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!-- rwd js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+ integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+ crossorigin="anonymous"></script>
 
     <style>
-        .nav-link {
+     
+     .nav-link {
             color: #ffffff;
         }
 
@@ -39,85 +45,23 @@
             margin-left: 100px;
         }
 
-        .about-us h1 {
-            font-size: 40px;
-            color: #4E4F51;
-            font-weight: bold;
-            text-align: center;
-            margin-top: 50px;
-            margin-bottom: 50px;
-        }
-
-
-        .about-us p {
-            font-size: 18px;
-            color: #4E4F51;
-            max-width: 800px;
-            text-align: left;
-            margin: 0 auto;
-            padding: 0 80px;
-        }
-
-        .author-section {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 40px;
-            max-width: 800px;
-            /* 最大宽度 */
-            margin: 0 auto;
-            /* 居中对齐 */
-            margin-top: 50px;
-            /* 上方距离 */
-            margin-bottom: 50px;
-            /* 下方距离 */
-        }
-
-
-        .author-card {
-            width: 300px;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        .author-card img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 10px;
-        }
-
-        .author-card h3 {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .author-card p {
-            font-size: 14px;
-        }
-
         @media (max-width: 768px) {
 
             .navbar-collapse {
                 position: fixed;
                 top: 0;
-                left: -100%;
+                right: -100%;
                 /* 修改為初始位置在畫面外 */
                 width: 100%;
                 height: 100%;
                 background-color: #094847;
-                transition: left 1s linear;
+                transition: right 0.3s linear;
                 /* 添加過渡效果 */
                 z-index: 9999;
             }
 
             .navbar-collapse.show {
-                left: 0%;
+                right: 0%;
                 /* 修改為滑入畫面內 */
             }
 
@@ -201,11 +145,234 @@
             height: 4px;
             border-radius: 2px;
         }
+
+        .about-us h1 {
+            font-size: 40px;
+            color: #4E4F51;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+
+        .about-us p {
+            font-size: 18px;
+            color: #4E4F51;
+            max-width: 800px;
+            text-align: left;
+            margin: 0 auto;
+            padding: 0 80px;
+        }
+
+        .author-section {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 800px;
+            /* 最大宽度 */
+            margin: 0 auto;
+            /* 居中对齐 */
+            margin-top: 50px;
+            /* 上方距离 */
+            margin-bottom: 50px;
+            /* 下方距离 */
+        }
+
+
+        .author-card {
+            width: 300px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .author-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .author-card h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .author-card p {
+            font-size: 14px;
+        }
+
+        
+        .footer {
+            width: 100%;
+            border-top: 7px solid #094847;
+            background-color: #094847;
+            height: 178px;
+            display: flex;
+            justify-content: space-between;
+
+            align-items: center;
+            margin-top: 60px;
+
+
+
+        }
+
+        .w1 {
+            font-family: "Inter";
+            font-weight: Bold;
+            font-size: 34px;
+            line-height: 48px;
+            letter-spacing: 0.4em;
+
+            text-align: left;
+
+            display: flex;
+            flex-direction: column;
+            margin-left: 5%;
+
+        }
+
+        .w2 {
+
+            font-weight: Bold;
+
+            font-size: 32px;
+            letter-spacing: 0.075em;
+            font-style: italic;
+
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            margin-left: 5%;
+
+        }
+
+        .w3 {
+            font-family: "Inter";
+            font-weight: Bold;
+            font-size: 20px;
+            letter-spacing: 0.1em;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            margin-right: 5%;
+        }
+
+        .w4 {
+            font-family: "Inter";
+            font-weight: Bold;
+            font-size: 20px;
+            letter-spacing: 0.1em;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            margin-right: 5%;
+        }
+
+
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            margin-left: 12.56%;
+            width: 23.54vw;
+
+        }
+
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+            margin-right: 12.56%;
+            width: 34.656vw;
+        }
+
+        @media (max-width: 768px) {
+            .w1 {
+                font-family: "Inter";
+                font-weight: Bold;
+                font-size: 22px;
+                letter-spacing: 0.1em;
+                line-height: 24.2px;
+                text-align: left;
+
+            }
+
+            .w2 {
+                text-align: left;
+                font-weight: Bold;
+                font-size: 19px;
+                letter-spacing: 0.05em;
+                font-style: italic;
+                line-height: 26px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+            }
+
+            .w3 {
+                font-family: "Inter";
+                font-weight: Bold;
+                font-size: 12px;
+                letter-spacing: 0.1em;
+                line-height: 20px;
+                text-align: left;
+            }
+
+            .w4 {
+                font-family: "Inter";
+                font-weight: Bold;
+                font-size: 12px;
+                letter-spacing: 0.1em;
+                text-align: left;
+                line-height: 20px;
+
+            }
+
+
+
+
+            .footer {
+                width: 100vw;
+                border-top: 12px solid #094847;
+                background-color: #094847;
+                height: 125px;
+                display: flex;
+
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+            }
+
+
+            .footer-left {
+                margin-left: 0%;
+                width: 100vw;
+                text-align: left;
+
+            }
+
+            .footer-right {
+                margin-left: 0%;
+                padding-left: 5%;
+                text-align: left;
+                width: 100vw;
+
+            }
+
+        }
+
     </style>
 </head>
 
 <body style="background-color: #ebeff3">
-
+    
     <nav class="navbar" style="background-color: #094847; position: relative;">
         <nav>
             <div class="container-fluid">
@@ -255,77 +422,102 @@
     <div class="overlay"></div>
 
 
-    <!--載入 Bootstrap JS 和 Popper.js-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-hl4Rl7o+zmUUojSmfWhFfRvF+dWg77ym8pX6SHrT9XHmT03cFw7wYVJ8jBFHN+i0"
-        crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pzjwZAwZua2+wVrO6U2R+mdfZRfy7WbcgmW9JgM1zSzJ4IT2B53U1La1fQrRs8Kz"
-        crossorigin="anonymous"></script>
-
-    <script>
-        var navbarCollapse = document.querySelector('.navbar-collapse');
-        var overlay = document.querySelector('.overlay');
-        var navbarToggler = document.querySelector('.navbar-toggler');
-
-        navbarToggler.addEventListener('click', function () {
-            navbarCollapse.classList.toggle('show');
-            overlay.classList.toggle('show');
-        });
-
-        overlay.addEventListener('click', function () {
-            navbarCollapse.classList.remove('show');
-            overlay.classList.remove('show');
-        });
-
-        var navbarCloseBtn = document.querySelector('.navbar-close-btn');
-
-        navbarCloseBtn.addEventListener('click', function () {
-            navbarCollapse.classList.remove('show');
-            overlay.classList.remove('show');
-        });
+    
 
 
-    </script>
 
-<div class="about-us">
-    <h1>關於我們</h1>
-    <p>「解睏新聞」取名自「解困新聞（Solutions News）」，我們的目標是提供資訊和新聞，讓讀者能夠解決困擾和問題，並期望我們精彩的故事與內容，能讓大家從昏昏欲睡中再次振奮。</p>
-</div>
-
-<div class="separator"></div>
-
-<div class="author-section">
-    <div class="author-card">
-        <img src="https://i.pinimg.com/564x/b3/4b/db/b34bdbbeb783f95d828e5693b69611a6.jpg" alt="Author 1">
-        <h3>王嘉瑜</h3>
-        <p>作者簡介1</p>
+    <div class="about-us">
+        <h1>關於我們</h1>
+        <p>「解睏新聞」取名自「解困新聞（Solutions News）」，我們的目標是提供資訊和新聞，讓讀者能夠解決困擾和問題，並期望我們精彩的故事與內容，能讓大家從昏昏欲睡中再次振奮。</p>
     </div>
-    <div class="author-card">
-        <img src="https://i.pinimg.com/564x/b1/4d/b9/b14db999c16513f3219e9577b24c3dab.jpg" alt="Author 2">
-        <h3>劉亭妤</h3>
-        <p>作者簡介2</p>
+
+    <div class="separator"></div>
+
+    <div class="author-section">
+        <div class="author-card">
+            <img src="https://i.pinimg.com/564x/b3/4b/db/b34bdbbeb783f95d828e5693b69611a6.jpg" alt="Author 1">
+            <h3>王嘉瑜</h3>
+            <p>23歲，INFP，政大新聞系。</p>
+        </div>
+        <div class="author-card">
+            <img src="https://i.pinimg.com/564x/b1/4d/b9/b14db999c16513f3219e9577b24c3dab.jpg" alt="Author 2">
+            <h3>劉亭妤</h3>
+            <p>我確診了</p>
+        </div>
+        <div class="author-card">
+            <img src="https://i.pinimg.com/564x/e3/a6/20/e3a620455da6e274cec87a57c7f5f5ea.jpg" alt="Author 3">
+            <h3>郭以涵</h3>
+            <p>從DS到前端，從財經到藝文，什麼都沾一點的新聞業打雜工⧸⎩(・∀・)⎭⧹</p>
+        </div>
+        <div class="author-card">
+            <img src="https://i.pinimg.com/564x/3e/61/6e/3e616ec25de7bbd13a7a7f0fac1ca56d.jpg" alt="Author 4">
+            <h3>郭宇璇</h3>
+            <p>2001年生，政大新聞系，喜歡文學、獨立音樂、史努比，還有寫程式？！</p>
+        </div>
     </div>
-    <div class="author-card">
-        <img src="https://i.pinimg.com/564x/e3/a6/20/e3a620455da6e274cec87a57c7f5f5ea.jpg" alt="Author 3">
-        <h3>郭以涵</h3>
-        <p>作者簡介3</p>
+
+ 
     </div>
-    <div class="author-card">
-        <img src="https://i.pinimg.com/564x/3e/61/6e/3e616ec25de7bbd13a7a7f0fac1ca56d.jpg" alt="Author 4">
-        <h3>郭宇璇</h3>
-        <p>2001年生，政大新聞系，喜歡文學、獨立音樂、史努比，還有寫程式？！</p>
+
+   
     </div>
-</div>
 
 
-</div>
+    <div class="footer">
+        <div class="footer-left">
+            <span class="w1" style="color:white">
+                解睏新聞
+            </span>
+
+            <span class="w2" style="color:white">
+                Solutions News
+            </span>
+        </div>
+        <div class="footer-right">
+            <span class="w3" ; style="color:white">
+                協作者：王嘉瑜、郭以涵、郭宇璇、劉亭妤
+            </span>
+            <span class="w4" style="color:white">
+                指導老師：李法賢
+            </span>
+        </div>
+    </div>
 
 
-</div>
+<!--載入 Bootstrap JS 和 Popper.js-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-hl4Rl7o+zmUUojSmfWhFfRvF+dWg77ym8pX6SHrT9XHmT03cFw7wYVJ8jBFHN+i0"
+crossorigin="anonymous"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-pzjwZAwZua2+wVrO6U2R+mdfZRfy7WbcgmW9JgM1zSzJ4IT2B53U1La1fQrRs8Kz"
+crossorigin="anonymous"></script>
+
+<script>
+var navbarCollapse = document.querySelector('.navbar-collapse');
+var overlay = document.querySelector('.overlay');
+var navbarToggler = document.querySelector('.navbar-toggler');
+
+navbarToggler.addEventListener('click', function () {
+    navbarCollapse.classList.toggle('show');
+    overlay.classList.toggle('show');
+});
+
+overlay.addEventListener('click', function () {
+    navbarCollapse.classList.remove('show');
+    overlay.classList.remove('show');
+});
+
+var navbarCloseBtn = document.querySelector('.navbar-close-btn');
+
+navbarCloseBtn.addEventListener('click', function () {
+    navbarCollapse.classList.remove('show');
+    overlay.classList.remove('show');
+});
+
+
+</script>
 
 </body>
 
-</html>　
+</html>
