@@ -183,6 +183,13 @@
             margin-left: 100px;
         }
 
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+
         .footer {
             width: 100%;
             border-top: 7px solid #094847;
@@ -272,6 +279,8 @@
         }
 
         @media (max-width: 768px) {
+
+
             .navbar-collapse {
                 position: fixed;
                 top: 0;
@@ -501,9 +510,9 @@
                 height: 125px;
                 display: flex;
 
-flex-direction: column;
-justify-content: flex-start;
-align-items: flex-start;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
             }
 
 
@@ -517,7 +526,6 @@ align-items: flex-start;
             .footer-right {
                 margin-left: 0%;
                 padding-left: 5%;
-
                 text-align: left;
                 width: 100vw;
 
@@ -529,7 +537,7 @@ align-items: flex-start;
 
 <body>
     <!-- header -->
-    <nav class="navbar" style="background-color: #094847; position: relative;">
+    <nav class="navbar" style="background-color: #094847; ">
         <nav>
             <div class="container-fluid">
                 <a class="navbar-brand" href="#" style="color:#FFFFFF; font-size: 30px; font-weight: bold; ">解睏新聞</a>
