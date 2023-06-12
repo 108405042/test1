@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--載入 Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- rwd js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!-- 載入plyr CSS -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.4/plyr.css">
+    <style>
+        .blue-line {
+            border-top: 5px solid #495a58;
+            width: 482px;
+            margin-left: 1.984vh;
+        }
+
+
+
+        .headline {
+            font-family: "Inter";
+            font-size: 40px;
+            font-weight: 700;
+            color: #363738;
+            line-height: 48.41px;
+            letter-spacing: 0.4em;
+            font-weight: bold;
+        }
+
+        /*添加新的風格在既有的bootsrap上*/
+        .carousel.item img {
+            width: 100%;
+            height: 60vh;
+            object-fit: cover;
+        }
+
+        .my-carousel-control-icon {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        .my-carousel-indicator-button .my-carousel-indicator-button {
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-item iframe {
+                width: 100%;
+                height: 300px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 992px) {
+            .carousel-item iframe {
+                width: 100%;
+                height: 400px;
+            }
+        }
+
+        @media (min-width: 993px) {
+            .carousel-item iframe {
+                width: 100%;
+                height: 607.5px;
+            }
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin-right: 15%;
+            margin-bottom: 1rem;
+            margin-left: 15%;
+            list-style: none;
+        }
+
+        .carousel-indicators [data-bs-target] {
+            box-sizing: content-box;
+            flex: 0 1 auto;
+            width: 30px;
+            height: 3px;
+            padding: 0;
+            margin-right: 3px;
+            margin-left: 3px;
+            text-indent: -999px;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-clip: padding-box;
+            border: 0;
+            border-radius: 100%;
+            opacity: 0.5;
+            transition: opacity 0.6s ease;
+        }
+
+        .carousel-indicators .active {
+            background-color: #fff;
+            opacity: 1;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-image: none;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 100%;
+            border: none;
+        }
+
+        .carousel-control-prev {
+            left: -7.5vw;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .carousel-control-next {
+            right: -7.5vw;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .carousel-control-prev:focus,
+        .carousel-control-next:focus {
+            outline: none;
+        }
+
+        .carousel-control-prev-icon:before {
+            content: '<';
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .carousel-control-next-icon:before {
+            content: '>';
+            font-size: 20px;
+            color: #fff;
+        }
+
+
+
+        @media (max-width: 768px) {
+            .headline {
+                font-size: 24px;
+                letter-spacing: 0.2em;
+            }
+
+            .blue-line {
+                width: 35%;
+            }
+
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 40px;
+                height: 40px;
+                background-color: rgba(0, 0, 0, 0.5);
+                border-radius: 100%;
+                border: none;
+            }
+
+            .carousel-control-prev-icon:before {
+                font-size: 3px;
+            }
+
+            .carousel-control-next-icon:before {
+                font-size: 3px;
+            }
+
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 20px;
+                height: 20px;
+            }
+
+        }
+
+        .video-news {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            width: 100%;
+            padding-bottom: 7%;
+        }
+
+        .video-news-bottom {
+            width: 71.42%;
+            margin-top: 4%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-link {
+            color: #ffffff;
+        }
+
+        .nav-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-item:hover {
+            background-color: #D9D9D9;
+            border-radius: 10px;
+        }
+
+        .nav-link:hover {
+            color: #4E4F51;
+        }
+
+        .nav-link.active {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .navbar-brand {
+            margin-left: 100px;
+        }
+
+        @media (max-width: 768px) {
+
+            .navbar-collapse {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                /* 修改為初始位置在畫面外 */
+                width: 100%;
+                height: 100%;
+                background-color: #094847;
+                transition: right 0.3s linear;
+                /* 添加過渡效果 */
+                z-index: 9999;
+            }
+
+            .navbar-collapse.show {
+                right: 0%;
+                /* 修改為滑入畫面內 */
+            }
+
+            .navbar-collapse.show .navbar-nav {
+                margin-top: 30px;
+            }
+
+
+            .navbar-toggler {
+                color: #ffffff;
+                margin-top: -15px;
+                position: fixed;
+                top: 10px;
+                right: 10px;
+            }
+
+            .navbar-brand {
+                margin-left: 20px;
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            .nav-item {
+                width: 100%;
+                margin-top: 40px;
+                font-size: 24px;
+
+            }
+
+            .nav-item:hover {
+                background-color: #D9D9D9;
+                border-radius: 10px;
+                width: 100%;
+            }
+
+
+
+            .nav-link {
+                color: #ffffff;
+                font-family: Inter;
+            }
+
+            .nav-link.active {
+                font-weight: bold;
+                font-size: 24px;
+            }
+
+
+        }
+
+        .navbar-close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 24px;
+
+        }
+
+        .navbar-toggler-icon span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            margin-bottom: 4px;
+            background-color: #fff;
+            height: 4px;
+            border-radius: 2px;
+        }
+
+        /*電腦版*/
+        @media(min-width:768px) {
+            .v-mobile {
+                display: none;
+            }
+        }
+
+        /*今日頭條、最新消息 大字設定*/
+        .bigword {
+            color: #363738;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 40px;
+            line-height: 48px;
+            letter-spacing: 0.4em;
+            background-color: #dde4e3;
+        }
+
+        /*今日頭條區塊標題*/
+        h5 {
+            color: #4E4F51;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 24px;
+            letter-spacing: 0.1em;
+            margin: 14px 0px 14px 0px;
+        }
+
+        /*今日頭條區塊作者*/
+        .author1 {
+            color: #4E4F51;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 17px;
+            letter-spacing: 0.1em;
+            margin: 14px 0px 14px 0px;
+        }
+
+        /*今日頭條區塊內文*/
+        .content1 {
+            color: #4E4F51;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: 0.1em;
+            margin: 14px 0px 44px 0px;
+        }
+
+        /*最新消息區塊卡片樣式*/
+        .card2 {
+            margin-top: 8px;
+            display: flex;
+            align-items: flex-start;
+            border-top: 1px solid #B3B6B9;
+        }
+
+        /*最新消息區塊標題*/
+        h6 {
+            color: #363738;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 24px;
+            letter-spacing: 0.01em;
+            margin: 16px;
+        }
+
+        /*最新消息區塊作者*/
+        .author2 {
+            color: #363738;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 17px;
+            letter-spacing: 0.01em;
+            margin: 16px;
+        }
+
+        /*手機版*/
+        @media(max-width:768px) {
+            .v-desktop {
+                display: none;
+            }
+
+            h5 {
+                font-size: 14px;
+                line-height: 17px;
+            }
+
+            .author1 {
+                font-size: 12px;
+                line-height: 15px;
+                margin: 8px 0px 8px 0px;
+            }
+
+            h6 {
+                font-size: 14px;
+                line-height: 17px;
+                font-weight: 700;
+                margin: 0px;
+            }
+
+            .author2 {
+                font-size: 12px;
+                line-height: 15px;
+                margin: 0px;
+                margin-top: 8px;
+            }
+        }
+
+        .footer {
+            width: 100%;
+            border-top: 7px solid #094847;
+            background-color: #094847;
+            height: 178px;
+            display: flex;
+            justify-content: space-between;
+
+            align-items: center;
+            margin-top: 60px;
+
+
+
+        }
+
+        .w1 {
+            font-family: "Inter";
+            font-weight: Bold;
+            font-size: 34px;
+            line-height: 48px;
+            letter-spacing: 0.4em;
+
+            text-align: left;
+
+            display: flex;
+            flex-direction: column;
+            margin-left: 5%;
+
+        }
+
+        .w2 {
+
+            font-weight: Bold;
+
+            font-size: 32px;
+            letter-spacing: 0.075em;
+            font-style: italic;
+
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            margin-left: 5%;
+
+        }
+
+        .w3 {
+            font-family: "Inter";
+            font-weight: Bold;
+            font-size: 20px;
+            letter-spacing: 0.1em;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            margin-right: 5%;
+        }
+
+        .w4 {
+            font-family: "Inter";
+            font-weight: Bold;
+            font-size: 20px;
+            letter-spacing: 0.1em;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            margin-right: 5%;
+        }
+
+
+
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            margin-left: 12.56%;
+            width: 23.54vw;
+
+        }
+
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+            margin-right: 12.56%;
+            width: 34.656vw;
+        }
+
+        @media (max-width: 768px) {
+            .w1 {
+                font-family: "Inter";
+                font-weight: Bold;
+                font-size: 22px;
+                letter-spacing: 0.1em;
+                line-height: 24.2px;
+                text-align: left;
+
+            }
+
+            .w2 {
+                text-align: left;
+                font-weight: Bold;
+                font-size: 19px;
+                letter-spacing: 0.05em;
+                font-style: italic;
+                line-height: 26px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+            }
+
+            .w3 {
+                font-family: "Inter";
+                font-weight: Bold;
+                font-size: 12px;
+                letter-spacing: 0.1em;
+                line-height: 20px;
+                text-align: left;
+            }
+
+            .w4 {
+                font-family: "Inter";
+                font-weight: Bold;
+                font-size: 12px;
+                letter-spacing: 0.1em;
+                text-align: left;
+                line-height: 20px;
+
+            }
+
+
+
+
+            .footer {
+                width: 100vw;
+                border-top: 12px solid #094847;
+                background-color: #094847;
+                height: 125px;
+                display: flex;
+
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+            }
+
+
+            .footer-left {
+                margin-left: 0%;
+                width: 100vw;
+                text-align: left;
+
+            }
+
+            .footer-right {
+                margin-left: 0%;
+                padding-left: 5%;
+                text-align: left;
+                width: 100vw;
+
+            }
+
+        }
+    </style>
+</head>
+
+<body style="background-color: #dde4e3">
+
+    <nav class="navbar" style="background-color: #094847; ">
+        <nav>
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" style="color:#FFFFFF; font-size: 30px; font-weight: bold; ">解睏新聞</a>
+            </div>
+        </nav>
+        <nav class="navbar navbar-expand-md bg-body-tertiary">
+            <div class="container-fluid" style="margin-right: 100px; ">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+                    style="position: absolute; top: 10px; right: 10px;">
+                    <span class="navbar-toggler-icon">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+
+                    <button class="navbar-close-btn d-md-none" type="button" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" style="font-family: Inter" href="項目頁A.html">藝文 X 生活</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="font-family: Inter" href="項目頁B.html">校園 X 體育</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="font-family: Inter" href="項目頁C.html">影音新聞</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="font-family: Inter" href="aboutus.html" >關於我們</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </nav>
+
+
+
+    <div class="overlay"></div>
+    <!--手機版-->
+    <div class="v-mobile" style="margin: -8px;">
+        <!--今日頭條標示-->
+        <div style="text-align: center;
+                        position: relative;
+                        margin-left: auto;
+                        margin-right: auto;
+                        margin-top: 100px;">
+            <span class="bigword" style="font-size: 32px;
+                            line-height: 39px;
+                            padding-left: 0.4em;
+                            position: absolute;
+                            left: 50%;
+                            top: 5px;
+                            transform: translate(-50%,-50%);">
+                今日頭條</span>
+            <div style="border-top: 5px solid #495a58;"></div>
+        </div>
+        <!--頭條-->
+        <div style="margin-top:32px; text-align: center;">
+            <img src="https://newslab.nccu.edu.tw/upload/69/doc/20615/3area1.jpg" style="width:100%;">
+            <a href="">
+                <div style="display: inline-block;
+                            background-color: #495a58;
+                            border-radius: 5px;
+                            color: #FFFFFF;
+                            font-family: 'Inter';
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 14px;
+                            line-height: 17px;
+                            letter-spacing: 0.1em;
+                            padding: 0.1em 0.4em 0em 0.5em;
+                            margin-top: 14px;">
+                    藝文</div>
+            </a>
+            <h5 style="margin: 16px;">一場展覽三個場域 藝術品背後的權力結構</h5>
+            <div class="author1">【記者郭以涵台北報導】</div>
+        </div>
+        <!--它條-->
+        <div class="card2" style="margin: 12px; margin-top: 30px;">
+            <div style="display: inline-block; width:30%;">
+                <img src="https://newslab.nccu.edu.tw/upload/69/doc/20826/taiwanplus2.png" width="100%" style="margin-top:12px ;">
+            </div>
+            <div style="width: 70%; display: inline-block; margin: 12px;">
+                <h6>國際影音平台委外 學者籲應先修法</h6>
+                <div class="author2">【記者郭以涵台北報導】</div>
+            </div>
+        </div>
+        <div class="card2" style="margin: 12px">
+            <div style="display: inline-block; width:30%;">
+                <img src="https://newslab.nccu.edu.tw/upload/69/doc/20619/god1.jpg" width="100%" style="margin-top:12px ;">
+            </div>
+            <div style="width: 70%; display: inline-block; margin: 12px;">
+                <h6>自信仰回望生活<br>〈夜巡預備備！〉演繹艋舺遶境籌備</h6>
+                <div class="author2">【記者郭宇璇台北報導】</div>
+            </div>
+        </div>
+        <div class="card2" style="margin: 12px; border-bottom: 1px solid #B3B6B9;">
+            <div style="display: inline-block; width:30%;">
+                <img src="https://newslab.nccu.edu.tw/upload/69/doc/20624/farmroad1.jpg" width="100%" style="margin-top:12px ;margin-bottom: 12px;">
+            </div>
+            <div style="width: 70%; display: inline-block; margin: 12px;">
+                <h6>農舍臨側臨路惹議　農民憂影響農作</h6>
+                <div class="author2">【記者郭以涵宜蘭報導】</div>
+            </div>
+        </div>
+        <br><br><br><br><br>
+    </div>
+
+    <!--電腦版-->
+    <div class="v-desktop">
+        <!--今日頭條標示-->
+        <div style="text-align: center;
+                    position: relative;
+                    width: 1080px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-top: 100px;">
+            <span class="bigword" style="padding-left: 0.4em;
+                         position: absolute;
+                         left: 50%;
+                         transform: translate(-50%,-50%);">
+                今日頭條</span>
+            <div style="border-top: 5px solid #495a58;
+                        border-left: 5px solid #495a58;
+                        border-right: 5px solid #495a58;">
+                <br><br><br>
+            </div>
+        </div>
+
+
+        <!--文章版面-->
+        <div style="display: flex;
+                    width: 1080px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-top: -32px;">
+            <!--左側欄-->
+            <div style="width: 22.5%; margin:16px;">
+                <div style="border-bottom: 1px solid #B3B6B9;">
+                    <img src="https://newslab.nccu.edu.tw/upload/69/doc/20619/god1.jpg" style="width:100% ;">
+                    <h5>自信仰回望生活<br>〈夜巡預備備！〉演繹艋舺遶境籌備</h5>
+                    <div class="author1">【記者郭宇璇台北報導】</div>
+                    <div class="content1">〈夜巡預備備！〉以艋舺大拜拜之前的繁瑣準備為主題，讓觀眾更加認識萬華的信仰文化。</div>
+                </div>
+                <div style="border-bottom: 1px solid #B3B6B9;">
+                    <h5>百味唱片行<br>AI藝術傳唱市場經典</h5>
+                    <div class="author1">【記者翁則豪、郭以涵、于馨雅台北報導】</div>
+                    <div class="content1">「百味唱片行—市場景觀色譜計畫」藝術家吳修銘使用色塊轉譯數位音樂等多種媒材，生動重現傳統市場風貌。</div>
+                </div>
+                <div>
+                    <h5>Dare to Care<br>台墨青年聖誕濟困</h5>
+                    <div class="author1">【記者顏沛晨 郭以涵 林雨翾台北報導】</div>
+                    <div class="content1">新冠肺炎蔓延全球，截至12月21日，墨西哥確診死亡率排名全球第二。普世博愛運動青年藉聖誕季舉辦活動幫助墨西哥。</div>
+                </div>
+            </div>
+            <!--中間欄-->
+            <div style="width: 55%; margin:16px;">
+                <div style="text-align: center; border-bottom: 1px solid #B3B6B9;;">
+                    <img src="https://newslab.nccu.edu.tw/upload/69/doc/20615/3area1.jpg" style="width:100% ;">
+                    <a href="">
+                        <div style="display: inline-block;
+                                    background-color: #495a58;
+                                    border-radius: 5px;
+                                    color: #FFFFFF;
+                                    font-family: 'Inter';
+                                    font-style: normal;
+                                    font-weight: 700;
+                                    font-size: 16px;
+                                    line-height: 19px;
+                                    letter-spacing: 0.1em;
+                                    padding: 0.3em 0.3em 0.3em 0.4em;
+                                    margin-top: 14px;">
+                            藝文</div>
+                    </a>
+                    <h5 style="font-size: 24px;
+                               line-height: 29px;
+                               margin: 16px;">
+                        一場展覽三個場域 藝術品背後的權力結構</h5>
+                    <div class="author1" style="font-size: 16px;
+                                line-height: 19px;
+                                margin: 16px;">
+                        【記者郭以涵台北報導】</div>
+                    <div class="content1" style="font-size: 16px;
+                                line-height: 19px;
+                                margin: 16px 0px 30px 0px;">
+                        4日開始，藝術家楊俊將於TKG+ Projects舉辦總共為期56天的當代藝術展「楊俊 —
+                        藝術家，合作者，他們的展覽與三個場域」藝評專欄作家Kayo說：「藝術本來就不只是裝置、不只是平面、不只是行為表演劇場，就是它有很多的東西要去閱讀。」</div>
+                </div>
+                <div style="margin-top: 30px; display:flex; align-items: flex-start;">
+                    <div style="width: 60%; display: inline-block;">
+                        <h5 style="margin-top: 0px; margin-left: 14px; margin-right: 14px; margin-bottom: 14px;">
+                            國際影音平台委外 學者籲應先修法</h5>
+                        <div class="author1" style="margin:14px">
+                            【記者郭以涵台北報導】</div>
+                        <div class="content1" style="margin: 14px;">
+                            文化部將「109國際影音串流平台」前導計畫交由財團法人中央通訊社辦理，希望借重其新聞專業，並乘著新型媒介興起與台灣優秀防疫成果的勢頭，向國際推廣台灣價值。</div>
+                    </div>
+                    <div style="display: inline-block; width:40%;">
+                        <img src="https://newslab.nccu.edu.tw/upload/69/doc/20826/taiwanplus2.png" style="width: 100%;">
+                    </div>
+                </div>
+            </div>
+            <!--右側欄-->
+            <div style="width: 22.5%; margin:16px;">
+                <div style="border-bottom: 1px solid #B3B6B9;">
+                    <img src="https://newslab.nccu.edu.tw/upload/69/doc/20624/farmroad1.jpg" style="width:100% ;">
+                    <h5>農舍臨側臨路惹議<br>農民憂影響農作</h5>
+                    <div class="author1">【記者郭以涵宜蘭報導】</div>
+                    <div class="content1">為維持農業生產環境的完整性，近期行政院農委會向內政部提案加入「農舍臨側臨路」規定。</div>
+                </div>
+                <div style="border-bottom: 1px solid #B3B6B9;">
+                    <h5>走入城市發展史<br>條通走讀領民回顧在地光景</h5>
+                    <div class="author1">【記者王嘉瑜綜合報導】</div>
+                    <div class="content1">島內散步Walk in
+                        Taiwan與重大歷史懸疑案件調查辦公室攜手舉辦「條通疑案調查事件簿」，通過區域與犯罪間的微妙連結，匯聚成獨特的城市發展歷史。</div>
+                </div>
+                <div>
+                    <h5>本土陣容成功復仇<br>UBA健行逆轉政大</h5>
+                    <div class="author1">【記者劉亭妤新北報導】</div>
+                    <div class="content1">「我們13個球員就是精兵，純本土一樣能衝擊冠軍。」健行科技大學用實力證明，身高不如對手，也能打出精彩好球。</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="video-news">
+            <div style="margin-left: 14.29%; display: flex; flex-direction: row;align-items: center; margin-top: 4%;">
+                <span class="headline">影音新聞</span>
+                <div class="blue-line"></div>
+
+            </div>
+
+
+            <div class="video-news-bottom">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                            aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                            aria-label="Slide 5"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
+                            aria-label="Slide 6"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6"
+                            aria-label="Slide 7"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7"
+                            aria-label="Slide 8"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <!--video 19-->
+                        <div class="carousel-item">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/BLtUztRJJxI"
+                                title="非典型勞動成趨勢　勞權缺漏仍待制度解方" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                        <!--video 18-->
+                        <div class="carousel-item">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jzzVfOmQ3p4"
+                                title="新銳藝術家展新意　文化部補助推青年走向國際" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                        <!--video 13-->
+                        <div class="carousel-item active">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/s8ljYhW9G0c"
+                                title="百味唱片行　AI藝術傳唱市場經典" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                        <!--video 15-->
+                        <div class="carousel-item">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vacOm6F5jvk"
+                                title="宿舍成本未完整公開　世新東吳惹議" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                        <!--video 17-->
+                        <div class="carousel-item">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/AAqU80qqj_A"
+                                title="導正避孕藥錯誤認知　校園性教育課程應完備" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                        <!--video 20-->
+                        <div class="carousel-item">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/_Ffi-WN3Dds"
+                                title="人權辦桌熱鬧開飯　持續搭起多元對話空間" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                        <!--video 14-->
+                        <div class="carousel-item">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vqgDZaEzy1I"
+                                title="Dare to Care 　台墨青年聖誕濟困" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                        <!--video 16-->
+                        <div class="carousel-item">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/GxeAQFXWxuc"
+                                title="結合台灣在地食材　打造咖啡新風味" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+
+
+
+
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!--最新消息-->
+        <div style="margin-left: 14.29%; display: flex; flex-direction: row;align-items: center; margin-top: 4%; margin-bottom: -0.5%;">
+            <span class="headline">最新消息</span>
+            <div class="blue-line"></div>
+
+        </div>
+
+        <!--最新消息
+        <div style="position: relative;
+                    width: 1080px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-top: 100px;">
+            <span class="bigword" style="position: absolute;
+                    transform: translate(0%,-50%);
+                    top: 5px;">
+                最新消息</span>
+            <div style="width: 66.7%;
+                    border: 5px solid #495a58;"></div>
+        </div>-->
+        <!--列表&FB-->
+        <div style="width: 1080px;
+                    margin-right:auto;
+                    margin-left: auto;
+                    display:flex;">
+            <!--左側列表-->
+            <div style="width: 66.7%;">
+                <div class="card2" style="margin-top: 60px;">
+                    <div style="display: inline-block; width:30%;">
+                        <img src="https://unews.nccu.edu.tw/wp-content/uploads/2021/12/c6e9a626622d2ccf2d78a73920d4f859-2048x1365.jpg" width="100%">
+                    </div>
+                    <div style="width: 70%; display: inline-block; margin: 16px;">
+                        <h6>臺師大體操隊現革命情感　重返全大運男團冠軍榮耀</h6>
+                        <div class="author2">【記者劉亭妤新北報導】</div>
+                    </div>
+                </div>
+                <div class="card2">
+                    <div style="display: inline-block; width:30%;">
+                        <img src="https://unews.nccu.edu.tw/wp-content/uploads/2021/12/5f9b8a945be605d80aa8297ea4fb6383-2048x1365.jpg" width="100%">
+                    </div>
+                    <div style="width: 70%; display: inline-block; margin: 16px;">
+                        <h6>中原力退衛冕軍　UVL預賽全勝求封王</h6>
+                        <div class="author2">【記者劉亭妤新竹報導】</div>
+                    </div>
+                </div>
+                <div class="card2">
+                    <div style="display: inline-block; width:30%;">
+                        <img src="http://www.newslab.nccu.edu.tw/uploads/asset/data/5fa4161a1d41c84f4b006714/theevent_photo_%E9%99%BD%E6%98%8E%E5%85%AC%E5%85%B1%E7%9D%A1%E8%A6%BA%E7%A9%BA%E9%96%931.jpg" width="100%">
+                    </div>
+                    <div style="width: 70%; display: inline-block; margin: 16px;">
+                        <h6>陽明公共睡覺空間啟用　盼提升學生課間休息品質</h6>
+                        <div class="author2">【記者郭宇璇綜合報導】</div>
+                    </div>
+                </div>
+                <div class="card2">
+                    <div style="display: inline-block; width:30%;">
+                        <img src="http://www.newslab.nccu.edu.tw/uploads/asset/data/5f74accb1d41c84f510045f5/theevent_photo_%E6%9D%B1%E8%8F%AF%E6%A9%9F%E8%BB%8A%E7%BD%B0%E6%AC%BE2.jpg" width="100%">
+                    </div>
+                    <div style="width: 70%; display: inline-block; margin: 16px;">
+                        <h6>東華交通罰款規定惹議　學生盼與校方對話</h6>
+                        <div class="author2">【記者郭宇璇綜合報導】</div>
+                    </div>
+                </div>
+                <div class="card2">
+                    <div style="display: inline-block; width:30%;">
+                        <img src="https://unews.nccu.edu.tw/wp-content/uploads/2021/11/0d5da29205994866ad78fbd06cac6e31-2048x1365.jpg" width="100%">
+                    </div>
+                    <div style="width: 70%; display: inline-block; margin: 16px;">
+                        <h6>融合在地歷史　中藥藝術節懷古倡漢藥生活化</h6>
+                        <div class="author2">【記者王嘉瑜綜合報導】</div>
+                    </div>
+                </div>
+                <div class="card2">
+                    <div style="display: inline-block; width:30%;">
+                        <img src="https://unews.nccu.edu.tw/wp-content/uploads/2021/12/c22746bab2777fd32f27db4ad6609a2c-2-1536x1024.jpg" width="100%">
+                    </div>
+                    <div style="width: 70%; display: inline-block; margin: 16px;">
+                        <h6>動靜新舊相輝映　三人聯展共築世代對話橋梁</h6>
+                        <div class="author2">【記者王嘉瑜綜合報導】</div>
+                    </div>
+                </div>
+            </div>
+            <!--右欄FB-->
+            <div style="width: 33.3%;">
+                <iframe
+                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Funewsonline&tabs=timeline&width=330&height=450&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=false&appId"
+                    width="330px" height="450px"
+                    style="border:none;overflow:hidden; margin-top: 60px; margin-left: 29.64px;" scrolling="no"
+                    frameborder="0" allowfullscreen="true"
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                </iframe>
+                <iframe
+                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fnccunewslab&tabs=timeline&width=330&height=450&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=false&appId"
+                    width="330px" height="450px"
+                    style="border:none;overflow:hidden; margin-top: 8px; margin-left: 29.64px;" scrolling="no"
+                    frameborder="0" allowfullscreen="true"
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                </iframe>
+
+
+            </div>
+
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-left">
+            <span class="w1" style="color:white">
+                解睏新聞
+            </span>
+
+            <span class="w2" style="color:white">
+                Solutions News
+            </span>
+        </div>
+        <div class="footer-right">
+            <span class="w3" ; style="color:white">
+                協作者：王嘉瑜、郭以涵、郭宇璇、劉亭妤
+            </span>
+            <span class="w4" style="color:white">
+                指導老師：李法賢
+            </span>
+        </div>
+    </div>
+    <!--載入 Bootstrap JS 和 Popper.js-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-hl4Rl7o+zmUUojSmfWhFfRvF+dWg77ym8pX6SHrT9XHmT03cFw7wYVJ8jBFHN+i0"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pzjwZAwZua2+wVrO6U2R+mdfZRfy7WbcgmW9JgM1zSzJ4IT2B53U1La1fQrRs8Kz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        var navbarCollapse = document.querySelector('.navbar-collapse');
+        var overlay = document.querySelector('.overlay');
+        var navbarToggler = document.querySelector('.navbar-toggler');
+
+        navbarToggler.addEventListener('click', function () {
+            navbarCollapse.classList.toggle('show');
+            overlay.classList.toggle('show');
+        });
+
+        overlay.addEventListener('click', function () {
+            navbarCollapse.classList.remove('show');
+            overlay.classList.remove('show');
+        });
+
+        var navbarCloseBtn = document.querySelector('.navbar-close-btn');
+
+        navbarCloseBtn.addEventListener('click', function () {
+            navbarCollapse.classList.remove('show');
+            overlay.classList.remove('show');
+        });
+
+
+    </script>
+</body>
+
+</html>
